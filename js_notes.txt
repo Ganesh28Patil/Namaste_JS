@@ -1,0 +1,56 @@
+How JS code is Executed ?
+It create a Global Execution Context, 
+And allocates Memory to all the varaible & functions
+even before a single line of code is executed.
+
+
+"Let" & "Const" are introduced in ES6 of Javascript.
+
+'Let' & 'Const' declarations are hoisted in JS. 
+They are hoisted differently then 'Var'.
+'Let' & 'Const' are in Temporal Dead zone for a time being.
+
+Temporal Dead Zone : 
+It is the time span since when this "Let" varaible is hoisted and till it is initialised with some value.
+The time between that is known as Temporal dead zone.
+
+Example : 
+consle.log(a);  // it will get hoisted in SCRIPT instead of Global
+                // Uncaught RefferenceError: Cannot access 'a' before initialization.
+let a = 10; // initalised and declaration
+
+Whenever you tries to access the varaible in the Temporal dead zone it gives you an error (Refference error)
+
+
+What is Block in JS.
+Block is defined as { }
+Block is also known compound statement.
+
+{
+    var a = 10;
+    let b  = 20;
+    const c  = 30;
+}
+
+In the above 👆 senario  , 'b' & 'c' are in block scope and 'a' is in Global scope.
+Block ▶️ 
+b: undefined
+c: undefined
+Global ▶️ 
+a: undefined
+
+
+What is shadowing in JS ?
+
+const c = 100;
+{
+    var a = 10;
+    let b = 20;
+    const c = 30;
+    console.log('a:', a)  // 10
+    console.log('b:', b)  // 20
+    console.log('c:', c)  // 30
+    // Here the value of C is shadowed (overwritten) for this perticular scope    
+}
+console.log('c:', c)  // 100
+
