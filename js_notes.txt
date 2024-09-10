@@ -3,6 +3,7 @@ It create a Global Execution Context,
 And allocates Memory to all the varaible & functions
 even before a single line of code is executed.
 
+----------------------------------------------------------------
 
 "Let" & "Const" are introduced in ES6 of Javascript.
 
@@ -39,6 +40,7 @@ c: undefined
 Global ▶️ 
 a: undefined
 
+----------------------------------------------------------------
 
 What is shadowing in JS ?
 
@@ -53,4 +55,47 @@ const c = 100;
     // Here the value of C is shadowed (overwritten) for this perticular scope    
 }
 console.log('c:', c)  // 100
+
+What is illigal-shadowing in JS ?
+  while shadowing a variable, it should not cross the boundary of the scope, 
+  i.e. we can shadow var variable by let variable but cannot do the opposite. 
+  So, if we try to shadow let variable by var variable, it is known as Illegal Shadowing and 
+  it will give the error as “variable is already defined.”
+
+Example : 
+
+let a = 20;
+{
+    var a = 50;
+}
+
+Here in this you will encounter an error,
+Uncaught SyntaxError: Identifier 'a' has already been declared.
+
+let a = 20;
+{
+    let a = 60;
+}
+
+this will working under shadowing.
+
+var a  = 20;
+{
+    let a = 30;
+}
+
+this will also work under shadowing.
+
+const a  = 20;
+{
+    const a = 80;
+}
+
+this will also work under shadowing.
+
+----------------------------------------------------------------
+
+Wha is Closure ?
+
+
 
