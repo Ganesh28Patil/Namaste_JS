@@ -95,7 +95,42 @@ this will also work under shadowing.
 
 ----------------------------------------------------------------
 
-Wha is Closure ?
+What is Closure ?
+
+ Function bundled with its lexical scope is known as closure,
+ Closure is a function bunddled together with its lexical environment
+Or 
+ Closure along with its lexical socpe bunddled together is known as closure.
+ Function along with its lexical scope forms a closure.
+
+A Closure is  the combination of a function bunddled together with references to its surrounding state (the lexical environment)
+
+Exmaple 👉
+
+   function x(){
+       var a = 7;
+       function y(){
+           console.log(a);
+       }
+       y();
+   }
+   x();
+
+    if we set debugger on 'console.log(a);' ▶️ 
+        Closure (x) 🔽  
+            a: 7
+    it means function y() is executing(accesing) lexical variable of function x() and this bundling of two function is known as closure.
 
 
+Exmaple 👉
+   function x(){
+       var a = 7;
+       function y(){
+           console.log(a);
+       }
+       return y;
+   }
+   var z = x();
+    console.log(z); // this will print enitre body of functionn y.
+    z(); // this will print the value of 'a' which is 7.
 
