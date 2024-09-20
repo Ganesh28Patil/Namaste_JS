@@ -110,7 +110,7 @@ Exmaple 👉
    function x(){
        var a = 7;
        function y(){
-           console.log(a);
+           console.log(a); 
        }
        y();
    }
@@ -133,4 +133,29 @@ Exmaple 👉
    var z = x();
     console.log(z); // this will print enitre body of functionn y.
     z(); // this will print the value of 'a' which is 7.
+
+
+Exmaple 👉
+    function z(){
+        var b = 900;
+        dfunction x(){
+            var a = 7;
+            function y(){
+                console.log('a: ',a,' b: ',b);                
+            }
+            y();
+        }
+        x();
+    }
+
+
+Uses of Closure : 
+    1) Module Design Pattern 
+    2) Currying
+    3) Functions like once 
+    4) Memoize
+    5) Maintaining state in async world
+    6) setTimeouts
+    7) Iterators
+    8) and many more ...
 
