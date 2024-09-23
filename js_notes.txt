@@ -155,7 +155,35 @@ Uses of Closure :
     3) Functions like once 
     4) Memoize
     5) Maintaining state in async world
-    6) setTimeouts
+    6) setTimeout
     7) Iterators
     8) and many more ...
 
+
+----------------------------------------------------------------
+
+what is setTimeout, how it works ?
+
+function x(){
+    var i = 1;
+    setTimeout(function(){
+        console.log(i);
+    },3000);
+}
+ x();
+
+
+ function sample(){
+    for(var i = 1; i <=5; i++){
+        function closure(x){
+            setTimeout(function() {
+                console.log(x);
+            }, x * 1000);
+        }
+        closure(i);
+    }
+
+    console.log('Namaste Javascript | setTimeOut');
+}
+
+sample();
