@@ -10,21 +10,17 @@
 //     }, j*1000);   
 // }
 
-
-
-for(let k = 1; k < 6; k++){
-    function x(){
-        for(var i = 1; i <= 5; i++){
-            function closure(x){
-                setTimeout(function() {
-                    console.log(x);
-                }, x * 1000);
-            }
-            closure(i);
+function x(){
+    for(var i = 1; i <= 5; i++){
+        function closure(x){
+            setTimeout(function() {
+                console.log(x);
+            }, x * 1000);
         }
-    
-        console.log('Namaste Javascript | setTimeOut');
+        closure(i);
     }
-    
-    x();
+
+    console.log('Namaste Javascript | setTimeOut');
 }
+
+x();
