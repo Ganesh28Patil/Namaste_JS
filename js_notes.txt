@@ -161,7 +161,7 @@ Uses of Closure :
 
 
 ----------------------------------------------------------------
-
+ 
 what is setTimeout, how it works ?
 
 function x(){
@@ -187,3 +187,63 @@ function x(){
 }
 
 sample();
+
+----------------------------------------------------------------
+Disadvantage of closure is
+Due to closure JS cannot do garbage collection so this turns to the problem of memory leak.
+----------------------------------------------------------------
+
+What is Garbage Collection in JS ?
+
+Javascript Garbage Collection frees up (clean up) the memmory that is no longer used by program.
+
+----------------------------------------------------------------
+
+Memory leaks & Closure ▶️
+    Closures themselves do not inherently cause memory leaks. However, 
+    improper use of closures can lead to memory leaks if variables or objects that are no longer needed 
+    are kept in memory by the closure, leading to unnecessary memory usage.
+
+    When a closure holds onto large objects or references that are not needed anymore, 
+    it can prevent the garbage collector from freeing up that memory.
+
+  Example : 
+   function outer() {
+        let bigData = new Array(1000000).fill("Some large data");
+
+        return function() {
+            console.log('Closure in action');
+        };
+    }
+
+    const closure = outer(); 
+    // Even though 'bigData' is no longer needed, it is still retained in memory by the closure
+
+
+=======================================================================================
+
+In Short, A Closure in JS occurs when a function remembers and can access its lexical scope 
+(variable in its outer function) even when outer function has finished its execution.
+
+Example : 
+function outer() {
+    let counter = 0;
+
+    function inner() {
+        counter++; // 'counter' is remembered by the closure
+        console.log(counter);
+    }
+
+    return inner;
+}
+
+const increment = outer();
+increment(); // 1
+increment(); // 2
+
+In this example, even though the outer function has finished execution, 
+the inner function retains access to the counter variable. 
+This is the core behavior of closures.
+
+=======================================================================================
+

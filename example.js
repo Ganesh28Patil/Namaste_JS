@@ -12,17 +12,19 @@
 
 
 
-function x(){
-    for(var i = 1; i <=5; i++){
-        function closure(x){
-            setTimeout(function() {
-                console.log(x);
-            }, x * 1000);
+for(let k = 1; k < 6; k++){
+    function x(){
+        for(var i = 1; i <= 5; i++){
+            function closure(x){
+                setTimeout(function() {
+                    console.log(x);
+                }, x * 1000);
+            }
+            closure(i);
         }
-        closure(i);
+    
+        console.log('Namaste Javascript | setTimeOut');
     }
-
-    console.log('Namaste Javascript | setTimeOut');
+    
+    x();
 }
-
-x();
