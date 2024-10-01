@@ -247,3 +247,69 @@ This is the core behavior of closures.
 
 =======================================================================================
 
+
+⭐ Function Statement :  (Function Declaration)
+
+function a(){
+    console.log('this is known as function statement');
+}
+
+⭐ Function Expression : 
+
+var b = function(){
+    console.log('this is known as function expression');
+}
+
+major difference between this 2 is hoisting 
+
+Exmaple : 
+
+function a(){
+    // console.log('Example for function Statement');
+    console.log('Invoking Function a');
+}
+
+var b = function(){
+    // console.log('Exmaple for Function Expression');
+    console.log('Invoking function b');
+}
+
+a(); // Invoking Function a
+b(); // Invoking Function b
+---- --- -- - - - ----- - - - --- - -- --------
+Here in case of hoisting whenever we make the call to function b() in start before its declaration this will 
+encounter an Typo Error due to hoisting.
+JS compiler will consider its as normal variable and it will give it as undefined as always.
+
+Example : 
+
+a(); // Invoking function a
+b(); // TypeError:  b is not a function, whereas JS is considering it as variable with value as undefined.
+
+function a(){
+    console.log('Invoking function a');
+}
+
+var b = function(){
+    console.log('Invoking function b');
+}
+
+----------------------------------------------------------------------------------------
+Note : Function Statement is also known as Function Declaration.
+----------------------------------------------------------------------------------------
+
+⭐ What is an Anonymous Function ?
+    function without a name is known as Anonymous function.
+    Anonymous function are used in a place where functions are used as values. (example as function expression)
+    In Example of function expression we can see that Anonymous function is used as value of variable b.
+    
+Exmaple : 
+
+    function (){
+        console.log('this is known as Anonymous function');
+    }
+
+//  
+
+
+⭐ First Class Function ?
