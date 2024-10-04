@@ -313,3 +313,5 @@ Exmaple :
 
 
 ⭐ First Class Function ?
+
+First Class function are the function which are using in calling calss and method
