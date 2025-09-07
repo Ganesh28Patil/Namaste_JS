@@ -313,3 +313,136 @@ Exmaple :
 
 
 ⭐ First Class Function ?
+
+ -::-  Function Statement ---  Function Expression --- Fucntion Declaration.  -::-
+
+ // Function Statement aka (also known as) Function Declaration
+function a(){
+    console.log('a invoked');
+}
+a(); // invoking function a()
+
+// Function Expression 
+var b = function(){
+    console.log('b invoked');
+}
+b(); // invoking function b()
+
+// Anonymous Function 
+function (){
+
+}
+//  we cant invoke Anonymous Function directly. 
+If we do so then it will throw error of 👇
+Uncaught SyntaxError: Function statement require a function name 
+ 
+ ▶️ ::: Difference between Fucntion Statement & Function Expression is Hoisting. :::
+ ▶️ ::: Function Statement is also known as Fucntion Declaration.  :::
+ ▶️ ::: Function Statement with out function name is known as Anonymous Fucntion.  :::
+
+ 
+ // Named Function Expression
+   When we give name to Anonymous function then it becomes Named Fucntion Expression.
+   Example : 
+
+var b = function xyz() {
+    cosnoel.log('xyz is the named fucntion expression');
+}
+b();
+
+
+
+// Difference between Parameters & Arguments : -
+
+Parameter: The named variable declared in the function’s definition, e.g., function sample(a, b) {...} — here, a and b are parameters.
+
+Argument: The value provided for a parameter during the function’s invocation, e.g., sample(1, 2) — here, 1 and 2 are arguments.
+
+The short explanation: parameters are in the function definition, arguments are in the function call.
+
+Example Code (with JavaScript syntax)
+
+function sample(a, b) { // a and b are parameters
+  console.log(a, b);
+}
+
+sample(1, 2); // 1 and 2 are arguments
+
+Comparison Table : 
+__________________________________________________________________________________
+| Aspect  |	Parameters                       |	Arguments                        |    
+|---------|----------------------------------|---------------------------------- | 
+| Where   |	 Function definition             |  	Function invocation          |   
+| Example |	function foo(x, y)               |	foo(10, 20)                      |
+| Role	  |   Placeholder for values         |	Actual values passed             |
+| Naming  |	Named in code, labels/variables  |	Can be literals, variables, etc. |
+----------------------------------------------------------------------------------
+
+
+//  First Class Funtion :-
+example : 
+function xyz(param){
+    return param;
+}
+var b = function(){
+    console.log('Anonymous function');
+}
+xyz(b);
+
+The ability to passs function as argument or return function as parameter  is known as first class function.
+This Ability is known as First Class function in Javascript.
+
+functions in JS can be passed as arguments, returned, and assigned to variables like regular values, which makes them first class citizens in the language.
+
+In JavaScript, first class functions means functions can be:
+
+    Assigned to variables.
+    Passed as arguments to other functions.
+    Returned from other functions.
+    Stored in data structures (arrays, objects, etc.)
+
+Few more example on First Class Function. :- 
+
+1. Assigning a Function to a Variable : 
+
+const greet = function() {
+  return "Hello, World!";
+}
+console.log(greet()); // Output: Hello, World!
+
+2. Passing a Function as an Argument
+
+function shout(fn) {
+  console.log(fn());
+}
+
+function sayHello() {
+  return "Hi there!";
+}
+
+shout(sayHello); // Output: Hi there!
+
+
+3. Returning a Function from Another Function
+
+function multiplier(x) {
+  return function(y) {
+    return x * y;
+  };
+}
+
+const double = multiplier(2);
+console.log(double(5)); // Output: 10
+
+
+4. Using Functions with Array Methods (Higher Order)
+
+const numbers = [1, 2, 3];
+const squared = numbers.map(x => x * x);
+console.log(squared); // Output: [1, 4, 9]
+
+
+When they are treaeted as value and can be passed as argument in the function and can be returned as paramenter by the function.
+Then this ability is known as first class function.
+In JavaScript this kind of functions are also known as "First Class Citizens".
+
