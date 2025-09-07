@@ -493,18 +493,16 @@ attachEventListener();
 
 ⭐ Asynchronous Function & Event Loop :
 
-JavaScript is a synchronous single thread language,
-It has one call stack and it can do only one thing at a time.
-This CALL STACK is present inside the JavaScript Engine.
-And all the code of the of javascript is executed inside the CALL STACK.
+JavaScript is a synchronous, single-threaded language.
+It has one Call Stack, and it can only do one task at a time.
+This Call Stack exists inside the JavaScript Engine, and all JavaScript code is executed there.
 
-
-Whenever any js code is run, a Global Execution Context is created.
-And Global Execution Context [GCE] is pushed inside the CALL STACK.
-In  Global Execution Context, the whole code is run line by line 
+Whenever any JavaScript code runs, a Global Execution Context (GEC) is created.
+This GEC is then pushed into the Call Stack.
+Inside the GEC, the code is executed line by line, in order.
 
 ----------- ------------- -------
-Sapose we have below code Snippet
+Suppose we have below code Snippet
 function a(){
     console.log("a");
 }
@@ -532,3 +530,80 @@ it keeps moving forward without pausing for anything else.
 
 ----------------------------------
 
+Explaining Event Loop :
+
+Event Loop in Simple Terms
+
+Code Snippet : 
+---- ---- ---- ---- ---- ---- --- ---
+console.log("Start");
+
+setTimeout(function cb(){
+  console.log("Callback");
+}, 5000);
+
+console.log("End");
+
+-- --- ---- ---- ---- ---- --- ---- ---
+
+1) When the code starts, a Global Execution Context (GEC) is created inside the Call Stack.
+
+2) Line 1 → console.log("Start") runs.
+
+    The console is a Web API.
+
+    It prints "Start" immediately.
+
+3) Line 2 → setTimeout(...) is called.
+
+    setTimeout is also a Web API.
+
+    It sets a 5-second timer and hands over the callback function cb() to the browser.
+
+    The callback does not enter the Call Stack yet. It just waits until the timer finishes.
+
+4) Line 3 → console.log("End") runs.
+
+    Prints "End" immediately.
+
+5) At this point, the main code is done, so the GEC is popped from the Call Stack.
+
+    But the setTimeout callback is still waiting for its 5000ms timer.
+
+6) After 5 seconds, the Web API moves the callback cb() into the Callback Queue.
+
+7) The Event Loop acts like a gatekeeper.
+
+    It constantly checks: “Is the Call Stack empty?”
+
+    If yes, it takes the callback from the Callback Queue and pushes it into the Call Stack.
+
+9) Finally, the callback cb() gets executed:
+
+    A new Execution Context is created for it.
+
+    Inside it, console.log("Callback") runs.
+
+    "Callback" is printed.
+
+✅ Final Output (in console):
+
+Start
+End
+Callback   (after 5 sec)
+
+Key Idea (layman style) : 
+
+    i)    Call Stack: Where code runs line by line.
+
+    ii)   Web APIs: Handle async tasks like setTimeout, fetch, etc.
+
+    iii)  Callback Queue: A waiting line for async callbacks.
+
+    iv)   Event Loop: The gatekeeper that checks if the Call Stack is free, and if yes, moves callbacks from the queue into the stack.
+
+👉 This is why JavaScript feels asynchronous, even though it’s single-threaded.
+
+
+
+---------------------------------------------
