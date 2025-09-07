@@ -446,3 +446,44 @@ When they are treaeted as value and can be passed as argument in the function an
 Then this ability is known as first class function.
 In JavaScript this kind of functions are also known as "First Class Citizens".
 
+=======================================================================================
+
+// What is Callback fucntion in Javascript.
+
+setTimeOut(fucntion(){
+    console.log("timmer")
+},5000);
+
+function x(y){
+    console.log("x");
+    y();
+}
+
+x(function y(){
+ console.log("y");
+})
+
+
+
+// Javascript is a synchronous and single threaded 
+
+// Blocking the main thread
+
+// Power of callbacks ?
+
+// Deep about Event Listeners
+
+// Closures Demo with Event Listeners
+
+// Scope Demo with Event Listeners
+
+// Garbage Collection & removeEventListeners
+
+function attachEventListener() {
+    let count = 0;
+    document.getElementById("clicMe").addEventListener("click", function () {
+        console.log("Button Clicked", ++count);
+    });
+}
+
+attachEventListener();
