@@ -487,3 +487,48 @@ function attachEventListener() {
 }
 
 attachEventListener();
+
+
+=======================================================================================
+
+⭐ Asynchronous Function & Event Loop :
+
+JavaScript is a synchronous single thread language,
+It has one call stack and it can do only one thing at a time.
+This CALL STACK is present inside the JavaScript Engine.
+And all the code of the of javascript is executed inside the CALL STACK.
+
+
+Whenever any js code is run, a Global Execution Context is created.
+And Global Execution Context [GCE] is pushed inside the CALL STACK.
+In  Global Execution Context, the whole code is run line by line 
+
+----------- ------------- -------
+Sapose we have below code Snippet
+function a(){
+    console.log("a");
+}
+a();
+console.log("END");
+----------- ------------- -------
+When the above code is executed, the Global Execution Context (GEC) is created and pushed into the Call Stack. 
+JavaScript will then execute the code line by line inside this context.
+
+1) The first line defines the function a(). Since it’s only a declaration, nothing is executed at this point.
+
+2) When the line a(); is encountered, a new Execution Context is created specifically for the function a(). 
+   This new context is then pushed onto the Call Stack.
+
+3) Inside the function a(), the statement console.log("a"); is executed, and "a" is printed to the console.
+
+4) Once the function body finishes executing, the execution context for a() is popped off the Call Stack.
+
+5) Now, only the GEC remains in the Call Stack. JavaScript continues to the next line: console.log("END");, which prints "END" to the console.
+
+6) After the last line is executed, the GEC itself is popped off the Call Stack, leaving the Call Stack empty.
+
+This step-by-step process shows how JavaScript executes synchronously, in order, without waiting—just like a train or tide, 
+it keeps moving forward without pausing for anything else.
+
+----------------------------------
+
